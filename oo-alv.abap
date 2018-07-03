@@ -50,7 +50,7 @@ MODULE alv OUTPUT.
         is_layout       = wa_lvc_s_layo
       CHANGING
         it_outtab       = "<SOME_INTERNAL_TABLE>
-        it_fieldcatalog = t_campos
+        it_fieldcatalog = t_fields
         it_sort         = t_sort.
   ENDIF.
 
@@ -81,7 +81,7 @@ ENDCLASS.
 
 FORM f_make_fields .
 
-  REFRESH t_campos.
+  REFRESH t_fields.
 
   PERFORM : f_make_field USING 'T_CARGAS' 'A_CANCCAR' 'Cancelar Carga' '14' '' '' 'X' '' '' '' '' '' '' '' '' '' 'X'.
 
@@ -129,7 +129,7 @@ FORM f_make_field USING VALUE(p_tabela)      "1
 
   CASE p_tabela.
     WHEN 'T_CARGAS'.
-      APPEND lwa_lvc_t_fcat TO t_campos_cargas.
+      APPEND lwa_lvc_t_fcat TO t_fields.
   ENDCASE.
 
 ENDFORM.
