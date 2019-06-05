@@ -1,6 +1,6 @@
-DATA : wa_bdcdata     TYPE bdcdata.
-DATA : t_bdcdata      TYPE TABLE OF wa_bdcdata.
+DATA : t_bdcdata      TYPE TABLE OF bdcdata.
 DATA : t_messages     TYPE TABLE OF bdcmsgcoll.
+DATA : wa_bdcdata     TYPE bdcdata.
 DATA : wa_messages    TYPE bdcmsgcoll.
 
 FORM bdc_dynpro USING program TYPE any
