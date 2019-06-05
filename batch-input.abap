@@ -25,9 +25,9 @@ FORM bdc_field USING fnam TYPE any
 ENDFORM.
 
 PERFORM bdc_dynpro USING : 'SAPMF02D'     '0036'.
-PERFORM bdc_field  USING : 'BDC_CURSOR'   'USE_ZAV',
-PERFORM bdc_field  USING : 'BDC_OKCODE'   '/00',
-PERFORM bdc_field  USING : 'RF02D-KUNNR'  kunnr,
+PERFORM bdc_field  USING : 'BDC_CURSOR'   'USE_ZAV'.
+PERFORM bdc_field  USING : 'BDC_OKCODE'   '/00'.
+PERFORM bdc_field  USING : 'RF02D-KUNNR'  kunnr.
 PERFORM bdc_field  USING : 'USE_ZAV'      'X'.
 
 CALL TRANSACTION '<transactio-code>'
