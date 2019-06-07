@@ -107,6 +107,12 @@ FORM f_make_field USING VALUE(p_tabela)      "1
                         VALUE(p_button) .
 
   DATA : lwa_lvc_t_fcat TYPE LINE OF lvc_t_fcat.
+  FIELD-SYMBOLS : <lt_fields> TYPE lvc_t_fcat.
+  DATA : l_fields_table_name TYPE string.
+  DATA : l_junk TYPE string.
+
+  SPLIT p_tabela AT 'T_' INTO l_junk l_fields_table_name.
+  CONCATENATE 'T_FIEDS_' l_fields_table_name INTO l_fields_table_name.
 
   lwa_lvc_t_fcat-fieldname = p_coluna.
   lwa_lvc_t_fcat-tabname   = p_tabela.
@@ -126,11 +132,9 @@ FORM f_make_field USING VALUE(p_tabela)      "1
   lwa_lvc_t_fcat-no_sum    = p_no_sum.
   lwa_lvc_t_fcat-no_convext = p_no_convext.
 
+  CHECK <lt_fields> IS ASSIGNED.
+  APPEND lwa_lvc_t_fcat TO <lt_fields>.
 
-  CASE p_tabela.
-    WHEN 'T_CARGAS'.
-      APPEND lwa_lvc_t_fcat TO t_fields.
-  ENDCASE.
 
 ENDFORM.
 
